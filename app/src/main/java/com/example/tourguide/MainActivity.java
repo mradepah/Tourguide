@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
 //        initialise and create page fragments with their various titles
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HistoryFragment(), "HISTORY");
-        adapter.addFragment(new PlacesFragment(), "PLACES");
-        adapter.addFragment(new EventsFragment(), "EVENTS");
-        adapter.addFragment(new FoodFragment(), "FOOD");
+        adapter.addFragment(new HistoryFragment(), getResources().getString(R.string.history));
+        adapter.addFragment(new PlacesFragment(), getResources().getString(R.string.places));
+        adapter.addFragment(new EventsFragment(), getResources().getString(R.string.events));
+        adapter.addFragment(new FoodFragment(), getResources().getString(R.string.foods));
         viewPager.setAdapter(adapter);
     }
 

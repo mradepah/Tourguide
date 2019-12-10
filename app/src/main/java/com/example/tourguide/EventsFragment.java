@@ -27,16 +27,11 @@ public class EventsFragment extends Fragment {
         View view = inflater.inflate(R.layout.events_layout, container, false);
         //        create an array list and add custom details to it
         ArrayList<Items> items = new ArrayList<>();
-        items.add(new Items(R.drawable.homowo, "HOMOWO FOOD FESTIVAL", "when a song is clicked all the following attributes of the song " +
-                "are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.chalewote, "CHALE WOTE ART FESTIVAL ", "when a song is clicked all the following attributes of the " +
-                "song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.rapperholic, "RAPPERHOLIC MUSIC FEST", "when a song is clicked all the following attributes of the " +
-                "song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.kwahu, "KWAHU PARAGLIDING", "when a song is clicked all the following attributes of " +
-                "the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.damba, "DAMBA FESTIVAL", "when a song is clicked all the following attributes of the song " +
-                "are passed in an intent to the now playing activity"));
+        items.add(new Items(R.drawable.homowo, getResources().getString(R.string.homowo), getResources().getString(R.string.homowodetails)));
+        items.add(new Items(R.drawable.chalewote, getResources().getString(R.string.charlewote), getResources().getString(R.string.charlewotedetails)));
+        items.add(new Items(R.drawable.rapperholic, getResources().getString(R.string.rapperholic), getResources().getString(R.string.rapperholicdetails)));
+        items.add(new Items(R.drawable.kwahu, getResources().getString(R.string.kwahu), getResources().getString(R.string.kwahudetails)));
+        items.add(new Items(R.drawable.damba, getResources().getString(R.string.damba), getResources().getString(R.string.dambadetails)));
 
 // gets the listview and populates it with the items array adapter we created earlier
         ListView listView = view.findViewById(R.id.eventsListContents);
@@ -50,9 +45,9 @@ public class EventsFragment extends Fragment {
 //              are passed to a new item details intent
                 Items eventItem = (Items) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ItemsDetails.class);
-                intent.putExtra("shortDescription", eventItem.getshortItemDescription());
-                intent.putExtra("longDescription", eventItem.getlongItemDescription());
-                intent.putExtra("imageDescription", eventItem.getItemImage());
+                intent.putExtra(getResources().getString(R.string.intentshort), eventItem.getshortItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentlong), eventItem.getlongItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentsimage), eventItem.getItemImage());
 
 
                 startActivity(intent);

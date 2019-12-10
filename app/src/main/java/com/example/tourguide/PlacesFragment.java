@@ -28,22 +28,14 @@ public class PlacesFragment extends Fragment {
 
 //        create an array list and add custom details to it
         ArrayList<Items> items = new ArrayList<>();
-        items.add(new Items(R.drawable.kwamenkrumahmemorial, "KWAME NKRUMAH MEMORIAL PARK", "when a song is clicked all the following attributes of the song " +
-                "are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.blackstargate, "BLACK STAR SQUARE", "when a song is clicked all the following attributes of " +
-                "the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.osucastle, "OSU CASTLE", "when a song is clicked all the following attributes of " +
-                "the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.elmina, "ELMINA CASTLE", "when a song is clicked all the following attributes of the song" +
-                "are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.capecoast, "CAPE COAST CASTLE", "when a song is clicked all the following attributes of the " +
-                "song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.lakebosomtwi, "LAKE BOSOMTWI", "when a song is clicked all the following attributes of " +
-                "the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.tonggo, "TONNGO FORT ", "when a song is clicked all the following attributes of the " +
-                "song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.larabangamosque, "LARABANGA MOSQUE", "when a song is clicked all the following attributes " +
-                "of the song are passed in an intent to the now playing activity"));
+        items.add(new Items(R.drawable.kwamenkrumahmemorial, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.blackstargate, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.osucastle, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.elmina, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.capecoast, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.lakebosomtwi, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.tonggo, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
+        items.add(new Items(R.drawable.larabangamosque, getResources().getString(R.string.jollof), getResources().getString(R.string.jollof)));
 
 // gets the listview and populates it with the items array adapter we created earlier
         ListView listView = view.findViewById(R.id.placesListContents);
@@ -57,9 +49,9 @@ public class PlacesFragment extends Fragment {
 //                are passed to a new item details intent
                 Items placeItem = (Items) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ItemsDetails.class);
-                intent.putExtra("shortDescription", placeItem.getshortItemDescription());
-                intent.putExtra("longDescription", placeItem.getlongItemDescription());
-                intent.putExtra("imageDescription", placeItem.getItemImage());
+                intent.putExtra(getResources().getString(R.string.intentshort), placeItem.getshortItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentlong), placeItem.getlongItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentsimage), placeItem.getItemImage());
 
 
                 startActivity(intent);

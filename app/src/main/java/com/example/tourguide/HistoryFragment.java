@@ -27,14 +27,10 @@ public class HistoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.history_layout, container, false);
         //        create an array list and add custom details to it
         ArrayList<Items> items = new ArrayList<>();
-        items.add(new Items(R.drawable.independenceanniversary, "INDEPENDENCE", "when a song is clicked all the following attributes of the " +
-                "song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.ghanacedis, "CURRENCY ", "when a song is clicked all the following" +
-                " attributes of the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.adomibrigbe, "ADOMI BRIDGE ", "when a song is clicked all the following attributes " +
-                "of the song are passed in an intent to the now playing activity"));
-        items.add(new Items(R.drawable.ghanamap, "GHANA MAP ", "when a song is clicked all the following " +
-                "attributes of the song are passed in an intent to the now playing activity"));
+        items.add(new Items(R.drawable.independenceanniversary, getResources().getString(R.string.independence), getResources().getString(R.string.independencedetails)));
+        items.add(new Items(R.drawable.ghanacedis, getResources().getString(R.string.ghanacedi), getResources().getString(R.string.ghanacedidetails)));
+        items.add(new Items(R.drawable.adomibrigbe, getResources().getString(R.string.adomibridge), getResources().getString(R.string.adomibridgedetails)));
+        items.add(new Items(R.drawable.ghanamap, getResources().getString(R.string.ghanamap), getResources().getString(R.string.ghanamapdetails)));
 
         // gets the listview and populates it with the items array adapter we created earlier
         ListView listView = view.findViewById(R.id.mainListContents);
@@ -49,10 +45,9 @@ public class HistoryFragment extends Fragment {
                 Items historyItem = (Items) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ItemsDetails.class);
 
-                intent.putExtra("shortDescription", historyItem.getshortItemDescription());
-                intent.putExtra("longDescription", historyItem.getlongItemDescription());
-                intent.putExtra("imageDescription", historyItem.getItemImage());
-
+                intent.putExtra(getResources().getString(R.string.intentshort), historyItem.getshortItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentlong), historyItem.getlongItemDescription());
+                intent.putExtra(getResources().getString(R.string.intentsimage), historyItem.getItemImage());
 
                 startActivity(intent);
             }
